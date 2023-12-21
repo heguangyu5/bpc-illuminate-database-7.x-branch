@@ -63,9 +63,9 @@ class Connector
      */
     protected function createPdoConnection($dsn, $username, $password, $options)
     {
-        if (class_exists(PDOConnection::class) && ! $this->isPersistentConnection($options)) {
-            return new PDOConnection($dsn, $username, $password, $options);
-        }
+//        if (class_exists(PDOConnection::class) && ! $this->isPersistentConnection($options)) {
+//            return new PDOConnection($dsn, $username, $password, $options);
+//        }
 
         return new PDO($dsn, $username, $password, $options);
     }

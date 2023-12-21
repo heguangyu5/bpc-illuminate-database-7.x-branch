@@ -321,23 +321,23 @@ class Builder
      * @throws \Doctrine\DBAL\DBALException
      * @throws \RuntimeException
      */
-    public function registerCustomDoctrineType($class, $name, $type)
-    {
-        if (! $this->connection->isDoctrineAvailable()) {
-            throw new RuntimeException(
-                'Registering a custom Doctrine type requires Doctrine DBAL (doctrine/dbal).'
-            );
-        }
+//    public function registerCustomDoctrineType($class, $name, $type)
+//    {
+//        if (! $this->connection->isDoctrineAvailable()) {
+//            throw new RuntimeException(
+//                'Registering a custom Doctrine type requires Doctrine DBAL (doctrine/dbal).'
+//            );
+//        }
 
-        if (! Type::hasType($name)) {
-            Type::addType($name, $class);
+//        if (! Type::hasType($name)) {
+//            Type::addType($name, $class);
 
-            $this->connection
-                ->getDoctrineSchemaManager()
-                ->getDatabasePlatform()
-                ->registerDoctrineTypeMapping($type, $name);
-        }
-    }
+//            $this->connection
+//                ->getDoctrineSchemaManager()
+//                ->getDatabasePlatform()
+//                ->registerDoctrineTypeMapping($type, $name);
+//        }
+//    }
 
     /**
      * Get the database connection instance.

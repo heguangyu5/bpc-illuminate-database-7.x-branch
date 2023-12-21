@@ -59,8 +59,8 @@ class MySqlConnection extends Connection
      *
      * @return \Doctrine\DBAL\Driver\PDOMySql\Driver
      */
-    protected function getDoctrineDriver()
-    {
-        return new DoctrineDriver;
-    }
+//    protected function getDoctrineDriver()
+//    {
+//        return new DoctrineDriver;
+//    }
 }

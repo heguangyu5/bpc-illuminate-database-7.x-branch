@@ -284,7 +284,8 @@ class Builder
     public function latest($column = null)
     {
         if (is_null($column)) {
-            $column = $this->model->getCreatedAtColumn() ?? 'created_at';
+            $tmp = $this->model->getCreatedAtColumn();
+            $column = $tmp ?? 'created_at';
         }
 
         $this->query->latest($column);
@@ -301,7 +302,8 @@ class Builder
     public function oldest($column = null)
     {
         if (is_null($column)) {
-            $column = $this->model->getCreatedAtColumn() ?? 'created_at';
+            $tmp = $this->model->getCreatedAtColumn();
+            $column = $tmp ?? 'created_at';
         }
 
         $this->query->oldest($column);
@@ -994,7 +996,8 @@ class Builder
         $originalWhereCount = is_null($query->wheres)
                     ? 0 : count($query->wheres);
 
-        $result = $scope(...array_values($parameters)) ?? $this;
+        $tmp = $scope(...array_values($parameters));
+        $result = $tmp ?? $this;
 
         if (count((array) $query->wheres) > $originalWhereCount) {
             $this->addNewWheresWithinGroup($query, $originalWhereCount);
@@ -1468,20 +1471,20 @@ class Builder
      * @param  bool  $replace
      * @return void
      */
-    protected static function registerMixin($mixin, $replace)
-    {
-        $methods = (new ReflectionClass($mixin))->getMethods(
-                ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED
-            );
+//    protected static function registerMixin($mixin, $replace)
+//    {
+//        $methods = (new ReflectionClass($mixin))->getMethods(
+//                ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED
+//            );
 
-        foreach ($methods as $method) {
-            if ($replace || ! static::hasGlobalMacro($method->name)) {
-                $method->setAccessible(true);
+//        foreach ($methods as $method) {
+//            if ($replace || ! static::hasGlobalMacro($method->name)) {
+//                $method->setAccessible(true);
 
-                static::macro($method->name, $method->invoke($mixin));
-            }
-        }
-    }
+//                static::macro($method->name, $method->invoke($mixin));
+//            }
+//        }
+//    }
 
     /**
      * Force a clone of the underlying query builder when cloning.

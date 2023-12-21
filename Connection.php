@@ -889,31 +889,31 @@ class Connection implements ConnectionInterface
      *
      * @return \Doctrine\DBAL\Schema\AbstractSchemaManager
      */
-    public function getDoctrineSchemaManager()
-    {
-        return $this->getDoctrineDriver()->getSchemaManager($this->getDoctrineConnection());
-    }
+//    public function getDoctrineSchemaManager()
+//    {
+//        return $this->getDoctrineDriver()->getSchemaManager($this->getDoctrineConnection());
+//    }
 
     /**
      * Get the Doctrine DBAL database connection instance.
      *
      * @return \Doctrine\DBAL\Connection
      */
-    public function getDoctrineConnection()
-    {
-        if (is_null($this->doctrineConnection)) {
-            $driver = $this->getDoctrineDriver();
+//    public function getDoctrineConnection()
+//    {
+//        if (is_null($this->doctrineConnection)) {
+//            $driver = $this->getDoctrineDriver();
 
-            $this->doctrineConnection = new DoctrineConnection(array_filter([
-                'pdo' => $this->getPdo(),
-                'dbname' => $this->getDatabaseName(),
-                'driver' => $driver->getName(),
-                'serverVersion' => $this->getConfig('server_version'),
-            ]), $driver);
-        }
+//            $this->doctrineConnection = new DoctrineConnection(array_filter([
+//                'pdo' => $this->getPdo(),
+//                'dbname' => $this->getDatabaseName(),
+//                'driver' => $driver->getName(),
+//                'serverVersion' => $this->getConfig('server_version'),
+//            ]), $driver);
+//        }
 
-        return $this->doctrineConnection;
-    }
+//        return $this->doctrineConnection;
+//    }
 
     /**
      * Get the current PDO connection.

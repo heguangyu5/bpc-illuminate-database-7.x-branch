@@ -35,10 +35,10 @@ abstract class Grammar extends BaseGrammar
      * @param  \Illuminate\Database\Connection  $connection
      * @return array
      */
-    public function compileRenameColumn(Blueprint $blueprint, Fluent $command, Connection $connection)
-    {
-        return RenameColumn::compile($this, $blueprint, $command, $connection);
-    }
+//    public function compileRenameColumn(Blueprint $blueprint, Fluent $command, Connection $connection)
+//    {
+//        return RenameColumn::compile($this, $blueprint, $command, $connection);
+//    }
 
     /**
      * Compile a change column command into a series of SQL statements.
@@ -50,10 +50,10 @@ abstract class Grammar extends BaseGrammar
      *
      * @throws \RuntimeException
      */
-    public function compileChange(Blueprint $blueprint, Fluent $command, Connection $connection)
-    {
-        return ChangeColumn::compile($this, $blueprint, $command, $connection);
-    }
+//    public function compileChange(Blueprint $blueprint, Fluent $command, Connection $connection)
+//    {
+//        return ChangeColumn::compile($this, $blueprint, $command, $connection);
+//    }
 
     /**
      * Compile a foreign key command.
@@ -255,14 +255,14 @@ abstract class Grammar extends BaseGrammar
      * @param  \Doctrine\DBAL\Schema\AbstractSchemaManager  $schema
      * @return \Doctrine\DBAL\Schema\TableDiff
      */
-    public function getDoctrineTableDiff(Blueprint $blueprint, SchemaManager $schema)
-    {
-        $table = $this->getTablePrefix().$blueprint->getTable();
+//    public function getDoctrineTableDiff(Blueprint $blueprint, SchemaManager $schema)
+//    {
+//        $table = $this->getTablePrefix().$blueprint->getTable();
 
-        return tap(new TableDiff($table), function ($tableDiff) use ($schema, $table) {
-            $tableDiff->fromTable = $schema->listTableDetails($table);
-        });
-    }
+//        return tap(new TableDiff($table), function ($tableDiff) use ($schema, $table) {
+//            $tableDiff->fromTable = $schema->listTableDetails($table);
+//        });
+//    }
 
     /**
      * Get the fluent commands for the grammar.

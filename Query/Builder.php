@@ -975,8 +975,8 @@ class Builder
             $values = $values->toArray();
         }
 
-        foreach ($values as &$value) {
-            $value = (int) $value;
+        foreach ($values as $idx => $value) {
+            $values[$idx] = (int) $value;
         }
 
         $this->wheres[] = compact('type', 'column', 'values', 'boolean');

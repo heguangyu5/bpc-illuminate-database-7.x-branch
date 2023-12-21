@@ -207,8 +207,9 @@ trait QueriesRelationships
             $types = $this->model->newModelQuery()->distinct()->pluck($relation->getMorphType())->filter()->all();
         }
 
-        foreach ($types as &$type) {
-            $type = Relation::getMorphedModel($type) ?? $type;
+        foreach ($types as $idx => $type) {
+            $tmp = Relation::getMorphedModel($type);
+            $types[$idx] = $tmp ?? $type;
         }
 
         return $this->where(function ($query) use ($relation, $callback, $operator, $count, $types) {
